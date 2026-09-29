@@ -14,17 +14,14 @@ export function HeroBanner() {
           className="group relative block select-none overflow-hidden rounded-lg md:rounded-xl"
         >
           {/* Фоновая картинка */}
-          <picture>
-            <source media="(max-width: 768px)" srcSet="/banners/mobile.webp" />
-            <img
-              alt="ExSun — сравните курсы обмена криптовалют"
-              className="block h-full w-full object-cover"
-              src="/banners/desktop.webp"
-              fetchPriority="high"
-              loading="eager"
-              decoding="async"
-            />
-          </picture>
+          <img
+            alt="ExSun — сравните курсы обмена криптовалют"
+            className="block w-full"
+            src="/banners/desktop.webp"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+          />
 
           {/* Затемнение для читаемости текста */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent" />
