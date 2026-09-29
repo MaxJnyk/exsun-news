@@ -121,7 +121,7 @@ export default async function NewsStoryPage(props: PageProps<'/news/[slug]'>) {
   };
 
   return (
-    <div className="mx-auto max-w-[1248px] px-5 py-8 lg:px-8">
+    <div className="mx-auto max-w-[1248px] px-4 py-6 sm:px-5 sm:py-8 lg:px-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -145,15 +145,15 @@ export default async function NewsStoryPage(props: PageProps<'/news/[slug]'>) {
         />
 
         {/* Top: tags + date + reading time */}
-        <div className="mb-3 flex flex-wrap items-center gap-2">
+        <div className="mb-2 flex flex-wrap items-center gap-1.5 sm:mb-3 sm:gap-2">
           {article.tags.map((tag) => (
-            <span key={tag} className="flex items-center gap-1.5">
+            <span key={tag} className="flex items-center gap-1">
               <TagIcon tag={tag} />
               <TagPill tag={tag} />
             </span>
           ))}
         </div>
-        <div className="mb-4 flex flex-wrap items-center gap-2 text-sm text-muted">
+        <div className="mb-3 flex flex-wrap items-center gap-1.5 text-xs text-muted sm:mb-4 sm:gap-2 sm:text-sm">
           <span>{article.date}</span>
           <span>·</span>
           <span>{readingTime} мин чтения</span>
@@ -162,13 +162,13 @@ export default async function NewsStoryPage(props: PageProps<'/news/[slug]'>) {
         </div>
 
         {/* Title + lead */}
-        <h1 className="mb-4 text-3xl font-extrabold leading-[1.2] text-ink sm:text-[40px]" style={{ letterSpacing: '-1.4px' }}>
+        <h1 className="mb-3 text-2xl font-extrabold leading-[1.2] text-ink sm:mb-4 sm:text-3xl lg:text-[40px]" style={{ letterSpacing: '-1.4px' }}>
           {article.title}
         </h1>
-        <p className="mb-6 text-lg leading-[1.65] text-muted">{article.summary}</p>
+        <p className="mb-5 text-base leading-[1.65] text-muted sm:mb-6 sm:text-lg">{article.summary}</p>
 
         {/* Cover image */}
-        <div className="relative mb-8 aspect-[2/1] overflow-hidden rounded-[20px]">
+        <div className="relative mb-6 aspect-[2/1] overflow-hidden rounded-[16px] sm:mb-8 sm:rounded-[20px]">
           <Image
             src={article.cover}
             alt={article.title}
@@ -180,17 +180,17 @@ export default async function NewsStoryPage(props: PageProps<'/news/[slug]'>) {
         </div>
 
         {/* Body */}
-        <div className="space-y-5">
+        <div className="space-y-4 sm:space-y-5">
           {article.content.map((paragraph, i) => {
             if (paragraph.startsWith('## ')) {
               return (
-                <h2 key={i} className="pt-4 text-2xl font-bold leading-[1.3] text-ink sm:text-[26px]" style={{ letterSpacing: '-0.6px' }}>
+                <h2 key={i} className="pt-3 text-xl font-bold leading-[1.3] text-ink sm:pt-4 sm:text-2xl lg:text-[26px]" style={{ letterSpacing: '-0.6px' }}>
                   {paragraph.slice(3)}
                 </h2>
               );
             }
             return (
-              <p key={i} className="text-base leading-[1.65] text-ink">{paragraph}</p>
+              <p key={i} className="text-[15px] leading-[1.7] text-ink sm:text-base sm:leading-[1.65]">{paragraph}</p>
             );
           })}
         </div>
@@ -218,11 +218,11 @@ export default async function NewsStoryPage(props: PageProps<'/news/[slug]'>) {
 
       {/* Related */}
       {related.length > 0 && (
-        <section className="mt-12">
-          <h2 className="mb-5 text-2xl font-bold leading-[1.3] text-ink sm:text-[28px]" style={{ letterSpacing: '-0.8px' }}>
+        <section className="mt-8 sm:mt-12">
+          <h2 className="mb-4 text-xl font-bold leading-[1.3] text-ink sm:mb-5 sm:text-2xl lg:text-[28px]" style={{ letterSpacing: '-0.8px' }}>
             Ещё по теме
           </h2>
-          <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
             {related.map((rel) => (
               <NewsCard key={rel.slug} article={rel} />
             ))}

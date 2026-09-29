@@ -20,7 +20,7 @@ export function NewsCard({ article, variant = 'standard' }: NewsCardProps) {
 
   if (variant === 'feature') {
     return (
-      <article className="group overflow-hidden rounded-[24px] bg-white shadow-soft transition-shadow hover:shadow-card">
+      <article className="group overflow-hidden rounded-[18px] bg-white shadow-soft transition-shadow hover:shadow-card sm:rounded-[24px]">
         <Link href={href} className="block">
           <div className="relative aspect-[2/1] overflow-hidden">
             <Image
@@ -33,22 +33,22 @@ export function NewsCard({ article, variant = 'standard' }: NewsCardProps) {
             />
           </div>
         </Link>
-        <div className="p-6 sm:p-8">
-          <div className="mb-3 flex flex-wrap items-center gap-2">
+        <div className="p-4 sm:p-6 lg:p-8">
+          <div className="mb-2 flex flex-wrap items-center gap-1.5 sm:mb-3 sm:gap-2">
             {article.tags.map((tag) => (
-              <span key={tag} className="flex items-center gap-1.5">
+              <span key={tag} className="flex items-center gap-1">
                 <TagIcon tag={tag} />
                 <TagPill tag={tag} />
               </span>
             ))}
           </div>
-          <h2 className="mb-3 text-2xl font-extrabold leading-[1.2] text-ink sm:text-3xl lg:text-[40px]" style={{ letterSpacing: '-0.8px' }}>
+          <h2 className="mb-2 text-xl font-extrabold leading-[1.2] text-ink sm:mb-3 sm:text-3xl lg:text-[36px]" style={{ letterSpacing: '-0.8px' }}>
             <Link href={href} className="transition-colors hover:text-orange">
               {article.title}
             </Link>
           </h2>
-          <p className="mb-4 max-w-[440px] text-base leading-[1.65] text-muted">{article.summary}</p>
-          <div className="flex items-center gap-3 text-sm text-muted">
+          <p className="mb-3 max-w-[440px] text-sm leading-[1.65] text-muted sm:mb-4 sm:text-base">{article.summary}</p>
+          <div className="flex items-center gap-2 text-xs text-muted sm:gap-3 sm:text-sm">
             <span>{article.date}</span>
             <span>·</span>
             <span>{readingTime} мин чтения</span>
@@ -98,7 +98,7 @@ export function NewsCard({ article, variant = 'standard' }: NewsCardProps) {
   }
 
   return (
-    <article className="group overflow-hidden rounded-[20px] bg-white shadow-soft transition-shadow hover:shadow-card">
+    <article className="group overflow-hidden rounded-[16px] bg-white shadow-soft transition-shadow hover:shadow-card sm:rounded-[20px]">
       <Link href={href} className="block">
         <div className="relative aspect-[2/1] overflow-hidden">
           <Image
@@ -110,21 +110,21 @@ export function NewsCard({ article, variant = 'standard' }: NewsCardProps) {
           />
         </div>
       </Link>
-      <div className="p-5 sm:p-6">
-        <div className="mb-3 flex flex-wrap items-center gap-2">
+      <div className="p-4 sm:p-5 lg:p-6">
+        <div className="mb-2 flex flex-wrap items-center gap-1.5 sm:mb-3 sm:gap-2">
           {article.tags.map((tag) => (
-            <span key={tag} className="flex items-center gap-1.5">
+            <span key={tag} className="flex items-center gap-1">
               <TagIcon tag={tag} size={14} />
               <TagPill tag={tag} />
             </span>
           ))}
         </div>
-        <h3 className="mb-2 text-xl font-bold leading-[1.38] text-ink sm:text-2xl" style={{ letterSpacing: '-0.55px' }}>
+        <h3 className="mb-1.5 text-base font-bold leading-[1.35] text-ink sm:mb-2 sm:text-xl lg:text-2xl" style={{ letterSpacing: '-0.55px' }}>
           <Link href={href} className="transition-colors hover:text-orange">
             {article.title}
           </Link>
         </h3>
-        <p className="mb-3 text-base leading-relaxed text-muted line-clamp-2">{article.summary}</p>
+        <p className="mb-2 text-sm leading-relaxed text-muted line-clamp-2 sm:mb-3 sm:text-base">{article.summary}</p>
         <div className="flex items-center gap-2 text-xs text-muted">
           <span>{article.date}</span>
           <span>·</span>

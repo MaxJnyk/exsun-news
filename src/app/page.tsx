@@ -38,27 +38,27 @@ export default function HomePage() {
         }}
       />
       {/* Intro */}
-      <section className="pt-12 pb-8 sm:pt-[49px]">
+      <section className="pt-8 pb-6 sm:pt-12 sm:pb-8 lg:pt-[49px]">
         <p
-          className="mb-3.5 text-xs font-extrabold uppercase text-[#9b523f] sm:mb-4"
+          className="mb-2.5 text-[10px] font-extrabold uppercase text-[#9b523f] sm:mb-4 sm:text-xs"
           style={{ letterSpacing: '1.7px' }}
         >
           ExSun Crypto News
         </p>
         <h1
-          className="mb-4 max-w-[820px] text-3xl font-extrabold leading-[1.2] text-ink sm:text-[40px]"
+          className="mb-3 max-w-[820px] text-2xl font-extrabold leading-[1.2] text-ink sm:mb-4 sm:text-3xl lg:text-[40px]"
           style={{ letterSpacing: '-1.4px' }}
         >
           Главное из мира криптовалют за 24 часа
         </h1>
-        <p className="text-sm text-muted sm:text-base">
+        <p className="text-xs text-muted sm:text-sm lg:text-base">
           28.09.2026 · {1 + todayNews.length} материалов сегодня
         </p>
       </section>
 
       {/* Hero: featured + 2 side cards */}
-      <section aria-label="Главные новости сегодня" className="mb-10 sm:mb-12">
-        <div className="grid grid-cols-1 gap-3.5 sm:gap-5 lg:grid-cols-3">
+      <section aria-label="Главные новости сегодня" className="mb-8 sm:mb-10 lg:mb-12">
+        <div className="grid grid-cols-1 gap-3 sm:gap-4 lg:grid-cols-3 lg:gap-5">
           {/* Featured - занимает 2 колонки */}
           {featured && (
             <div className="lg:col-span-2">
@@ -66,7 +66,7 @@ export default function HomePage() {
             </div>
           )}
           {/* 2 карточки справа */}
-          <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-1">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-1 lg:gap-5">
             {todayNews.slice(0, 2).map((article) => (
               <NewsCard key={article.slug} article={article} />
             ))}
@@ -74,7 +74,7 @@ export default function HomePage() {
         </div>
         {/* Остальные карточки */}
         {todayNews.length > 2 && (
-          <div className="mt-3.5 grid grid-cols-1 gap-3.5 sm:mt-5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+          <div className="mt-3 grid grid-cols-1 gap-3 sm:mt-4 sm:grid-cols-2 sm:gap-4 lg:mt-5 lg:grid-cols-3 lg:gap-5">
             {todayNews.slice(2).map((article) => (
               <NewsCard key={article.slug} article={article} />
             ))}
@@ -84,17 +84,17 @@ export default function HomePage() {
 
       {/* Yesterday */}
       {yesterdayNews.length > 0 && (
-        <section className="mb-10 sm:mb-12">
+        <section className="mb-8 sm:mb-10 lg:mb-12">
           <div className="mb-3 flex items-baseline justify-between sm:mb-4">
             <h2
-              className="text-2xl font-bold leading-[1.3] text-ink sm:text-[28px]"
+              className="text-xl font-bold leading-[1.3] text-ink sm:text-2xl lg:text-[28px]"
               style={{ letterSpacing: '-0.8px' }}
             >
               Ранее
             </h2>
-            <span className="text-sm text-muted">14 сентября</span>
+            <span className="text-xs text-muted sm:text-sm">14 сентября</span>
           </div>
-          <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
             {yesterdayNews.map((article) => (
               <NewsCard key={article.slug} article={article} />
             ))}
@@ -104,17 +104,17 @@ export default function HomePage() {
 
       {/* Older */}
       {olderNews.length > 0 && (
-        <section className="mb-10 sm:mb-12">
+        <section className="mb-8 sm:mb-10 lg:mb-12">
           <div className="mb-3 flex items-baseline justify-between sm:mb-4">
             <h2
-              className="text-2xl font-bold leading-[1.3] text-ink sm:text-[28px]"
+              className="text-xl font-bold leading-[1.3] text-ink sm:text-2xl lg:text-[28px]"
               style={{ letterSpacing: '-0.8px' }}
             >
               Август
             </h2>
-            <span className="text-sm text-muted">20 августа</span>
+            <span className="text-xs text-muted sm:text-sm">20 августа</span>
           </div>
-          <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
             {olderNews.map((article) => (
               <NewsCard key={article.slug} article={article} />
             ))}

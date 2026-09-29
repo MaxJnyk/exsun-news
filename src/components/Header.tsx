@@ -20,15 +20,15 @@ export function Header() {
     href === '/' ? pathname === '/' : pathname.startsWith(href);
 
   return (
-    <header className="border-b border-line bg-white">
-      <div className="mx-auto flex h-[76px] max-w-[1248px] items-center justify-between gap-6 px-5 sm:h-[96px] lg:px-8">
+    <header className="sticky top-0 z-40 border-b border-line bg-white">
+      <div className="mx-auto flex h-[60px] max-w-[1248px] items-center justify-between gap-4 px-4 sm:h-[76px] sm:gap-6 sm:px-5 lg:h-[96px] lg:px-8">
         {/* Brand */}
         <Link href="/" className="flex items-center" aria-label="ExSun Crypto News">
-          <span className="flex items-center gap-2 text-[28px] font-bold text-orange-bright sm:text-[32px]" style={{ letterSpacing: '-1.3px' }}>
-            <Image src="/logo.svg" alt="ExSun" width={36} height={36} className="shrink-0" />
+          <span className="flex items-center gap-1.5 text-[22px] font-bold text-orange-bright sm:gap-2 sm:text-[28px] lg:text-[32px]" style={{ letterSpacing: '-1.3px' }}>
+            <Image src="/logo.svg" alt="ExSun" width={28} height={28} className="shrink-0 sm:h-9 sm:w-9" />
             ExSun
           </span>
-          <span className="ml-3 border-l border-line pl-4 text-[10px] font-bold leading-[1.4] text-ink sm:ml-4 sm:text-xs" style={{ letterSpacing: '0.4px' }}>
+          <span className="ml-2 border-l border-line pl-2.5 text-[9px] font-bold leading-[1.4] text-ink sm:ml-3 sm:pl-4 sm:text-[10px] lg:ml-4 lg:text-xs" style={{ letterSpacing: '0.4px' }}>
             Crypto
             <br />
             News
@@ -58,7 +58,7 @@ export function Header() {
 
         {/* Mobile burger */}
         <button
-          className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-xl bg-paper md:hidden"
+          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-xl bg-paper md:hidden"
           onClick={() => setOpen(!open)}
           aria-label={open ? 'Закрыть меню' : 'Открыть меню'}
           aria-expanded={open}
@@ -71,15 +71,17 @@ export function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <nav className="absolute left-0 top-[76px] z-50 w-full bg-white px-5 py-5 shadow-[0_10px_12px_rgba(32,37,60,0.07)] md:hidden">
-          <div className="flex flex-col gap-4 text-[15px] font-medium">
+        <nav className="absolute left-0 top-[60px] z-50 w-full border-b border-line bg-white px-4 py-4 shadow-[0_10px_12px_rgba(32,37,60,0.07)] sm:top-[76px] sm:px-5 sm:py-5 md:hidden">
+          <div className="flex flex-col gap-3 text-[15px] font-medium sm:gap-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className={`transition-colors ${
-                  isActive(item.href) ? 'text-orange' : 'text-[rgba(60,59,101,0.5)] hover:text-orange'
+                className={`rounded-xl px-3 py-2.5 transition-colors ${
+                  isActive(item.href)
+                    ? 'bg-orange/5 text-orange'
+                    : 'text-[rgba(60,59,101,0.5)] hover:bg-paper hover:text-orange'
                 }`}
               >
                 {item.label}

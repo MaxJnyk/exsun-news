@@ -60,7 +60,7 @@ export default async function NewsArchivePage({
   };
 
   return (
-    <div className="mx-auto max-w-[1248px] px-5 py-12 lg:px-8">
+    <div className="mx-auto max-w-[1248px] px-4 py-8 sm:px-5 sm:py-12 lg:px-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -80,14 +80,14 @@ export default async function NewsArchivePage({
         ]}
       />
 
-      <section className="mb-8 mt-6">
-        <p className="mb-3.5 text-xs font-extrabold uppercase text-[#9b523f]" style={{ letterSpacing: '1.7px' }}>
+      <section className="mb-6 mt-4 sm:mb-8 sm:mt-6">
+        <p className="mb-2 text-[10px] font-extrabold uppercase text-[#9b523f] sm:mb-3.5 sm:text-xs" style={{ letterSpacing: '1.7px' }}>
           ExSun Crypto News
         </p>
-        <h1 className="mb-4 text-3xl font-extrabold leading-[1.2] text-ink sm:text-[40px]" style={{ letterSpacing: '-1.4px' }}>
+        <h1 className="mb-3 text-2xl font-extrabold leading-[1.2] text-ink sm:mb-4 sm:text-3xl lg:text-[40px]" style={{ letterSpacing: '-1.4px' }}>
           Все новости
         </h1>
-        <p className="text-sm text-muted sm:text-base">
+        <p className="text-xs text-muted sm:text-sm lg:text-base">
           Архив публикаций · {news.length} материалов
         </p>
       </section>
@@ -95,7 +95,7 @@ export default async function NewsArchivePage({
       {/* Tag filters */}
       <nav
         id="topics"
-        className="mb-8 flex gap-2 overflow-x-auto pb-2 sm:flex-wrap sm:overflow-visible sm:pb-0"
+        className="mb-6 flex gap-2 overflow-x-auto pb-2 sm:mb-8 sm:flex-wrap sm:overflow-visible sm:pb-0"
         aria-label="Фильтры по темам"
       >
         <span className="inline-block shrink-0 whitespace-nowrap rounded-full bg-orange px-3 py-1 text-xs font-semibold text-white">
@@ -111,11 +111,11 @@ export default async function NewsArchivePage({
       {/* News grouped by date */}
       <div>
         {dates.map((date) => (
-          <section key={date} className="mb-10">
-            <h2 className="mb-4 text-2xl font-bold leading-[1.3] text-ink sm:text-[28px]" style={{ letterSpacing: '-0.8px' }}>
+          <section key={date} className="mb-8 sm:mb-10">
+            <h2 className="mb-3 text-xl font-bold leading-[1.3] text-ink sm:mb-4 sm:text-2xl lg:text-[28px]" style={{ letterSpacing: '-0.8px' }}>
               {formatDateGroup(date)}
             </h2>
-            <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
               {dateGroups[date].map((article) => (
                 <NewsCard key={article.slug} article={article} />
               ))}
@@ -126,11 +126,11 @@ export default async function NewsArchivePage({
 
       {/* Pagination */}
       {totalPages > 1 && (
-        <nav className="mt-10 flex items-center justify-center gap-2" aria-label="Пагинация">
+        <nav className="mt-8 flex flex-wrap items-center justify-center gap-1.5 sm:mt-10 sm:gap-2" aria-label="Пагинация">
           {currentPage > 1 && (
             <Link
               href={`/news${currentPage === 2 ? '' : `?page=${currentPage - 1}`}`}
-              className="rounded-[12px] border border-line bg-white px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-orange hover:text-orange"
+              className="rounded-[10px] border border-line bg-white px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-orange hover:text-orange sm:rounded-[12px] sm:px-4 sm:py-2 sm:text-sm"
             >
               ← Назад
             </Link>
@@ -139,7 +139,7 @@ export default async function NewsArchivePage({
             <Link
               key={p}
               href={`/news${p === 1 ? '' : `?page=${p}`}`}
-              className={`rounded-[12px] px-4 py-2 text-sm font-semibold transition-colors ${
+              className={`rounded-[10px] px-3 py-1.5 text-xs font-semibold transition-colors sm:rounded-[12px] sm:px-4 sm:py-2 sm:text-sm ${
                 p === currentPage
                   ? 'bg-orange text-white'
                   : 'border border-line bg-white text-ink hover:border-orange hover:text-orange'
@@ -151,7 +151,7 @@ export default async function NewsArchivePage({
           {currentPage < totalPages && (
             <Link
               href={`/news?page=${currentPage + 1}`}
-              className="rounded-[12px] border border-line bg-white px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-orange hover:text-orange"
+              className="rounded-[10px] border border-line bg-white px-3 py-1.5 text-xs font-semibold text-ink transition-colors hover:border-orange hover:text-orange sm:rounded-[12px] sm:px-4 sm:py-2 sm:text-sm"
             >
               Вперёд →
             </Link>
