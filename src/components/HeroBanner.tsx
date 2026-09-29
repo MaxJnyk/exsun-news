@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export function HeroBanner() {
@@ -14,13 +15,14 @@ export function HeroBanner() {
           className="group relative block select-none overflow-hidden rounded-lg md:rounded-xl"
         >
           {/* Фоновая картинка */}
-          <img
+          <Image
             alt="ExSun — сравните курсы обмена криптовалют"
             className="block w-full"
             src="/promo/hero-wide.webp"
-            fetchPriority="high"
-            loading="eager"
-            decoding="async"
+            width={3376}
+            height={1440}
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 95vw, 1232px"
           />
 
           {/* Затемнение для читаемости текста */}
