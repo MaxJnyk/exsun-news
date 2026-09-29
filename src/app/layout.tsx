@@ -4,6 +4,7 @@ import { Montserrat } from "next/font/google";
 import { CookieBanner } from "@/components/CookieBanner";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { HeroBanner } from "@/components/HeroBanner";
 import { TopBanner } from "@/components/TopBanner";
 
 import "./globals.css";
@@ -151,6 +152,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <TopBanner />
         <Header />
+        <HeroBanner />
         <main className="flex-1">{children}</main>
         <Footer />
         <CookieBanner />
