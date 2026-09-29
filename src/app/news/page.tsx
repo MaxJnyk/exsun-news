@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { NewsCard } from '@/components/NewsCard';
 import { TagPill } from '@/components/TagPill';
-import { allTags, formatDateGroup, news } from '@/data/news';
+import { allTags, news } from '@/data/news';
 
 export const metadata: Metadata = {
   title: 'Все новости',
@@ -27,13 +27,6 @@ export default async function NewsArchivePage({
   const currentPage = Math.min(page, totalPages);
   const start = (currentPage - 1) * PER_PAGE;
   const pageNews = news.slice(start, start + PER_PAGE);
-
-  const dateGroups = pageNews.reduce<Record<string, typeof news>>((acc, article) => {
-    (acc[article.date] ??= []).push(article);
-    return acc;
-  }, {});
-
-  const dates = Object.keys(dateGroups).sort((a, b) => b.localeCompare(a));
 
   const itemListJsonLd = {
     '@context': 'https://schema.org',
@@ -108,19 +101,10 @@ export default async function NewsArchivePage({
         ))}
       </nav>
 
-      {/* News grouped by date */}
-      <div>
-        {dates.map((date) => (
-          <section key={date} className="mb-8 sm:mb-10">
-            <h2 className="mb-3 text-xl font-bold leading-[1.3] text-ink sm:mb-4 sm:text-2xl lg:text-[28px]" style={{ letterSpacing: '-0.8px' }}>
-              {formatDateGroup(date)}
-            </h2>
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
-              {dateGroups[date].map((article) => (
-                <NewsCard key={article.slug} article={article} />
-              ))}
-            </div>
-          </section>
+      {/* News grid */}
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
+        {pageNews.map((article) => (
+          <NewsCard key={article.slug} article={article} />
         ))}
       </div>
 

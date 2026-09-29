@@ -49,8 +49,6 @@ export function NewsCard({ article, variant = 'standard' }: NewsCardProps) {
           </h2>
           <p className="mb-3 max-w-[440px] text-sm leading-[1.65] text-muted sm:mb-4 sm:text-base">{article.summary}</p>
           <div className="flex items-center gap-2 text-xs text-muted sm:gap-3 sm:text-sm">
-            <span>{article.date}</span>
-            <span>·</span>
             <span>{readingTime} мин чтения</span>
           </div>
         </div>
@@ -126,8 +124,6 @@ export function NewsCard({ article, variant = 'standard' }: NewsCardProps) {
         </h3>
         <p className="mb-2 text-sm leading-relaxed text-muted line-clamp-2 sm:mb-3 sm:text-base">{article.summary}</p>
         <div className="flex items-center gap-2 text-xs text-muted">
-          <span>{article.date}</span>
-          <span>·</span>
           <span>{readingTime} мин чтения</span>
         </div>
       </div>

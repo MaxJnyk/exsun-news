@@ -4,6 +4,7 @@ import { Montserrat } from "next/font/google";
 import { CookieBanner } from "@/components/CookieBanner";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { TopBanner } from "@/components/TopBanner";
 
 import "./globals.css";
 
@@ -123,7 +124,7 @@ const orgJsonLd = {
   actionableFeedbackPolicy: `${baseUrl}/contacts`,
   diversityPolicy: `${baseUrl}/editorial`,
   email: "editor@exsun.net",
-  sameAs: ["https://t.me/exsun_news"],
+  sameAs: ["https://t.me/exsun_official"],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -148,6 +149,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             __html: JSON.stringify(orgJsonLd).replace(/</g, "\\u003c"),
           }}
         />
+        <TopBanner />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import type { NewsTag } from '@/data/news';
+import { getNewsByTag } from '@/data/news';
 
 interface TagPillProps {
   tag: NewsTag;
@@ -8,9 +9,12 @@ interface TagPillProps {
 }
 
 export function TagPill({ tag, active = false }: TagPillProps) {
+  const hasArticles = getNewsByTag(tag).length > 0;
+  const href = hasArticles ? `/tag/${tag}` : '/news';
+
   return (
     <Link
-      href={`/tag/${tag}`}
+      href={href}
       className={`inline-block whitespace-nowrap rounded-full px-3 py-1 text-xs font-semibold transition-colors ${
         active
           ? 'bg-orange text-white'

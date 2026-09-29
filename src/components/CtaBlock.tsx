@@ -5,6 +5,9 @@ interface CtaBlockProps {
 }
 
 export function CtaBlock({ variant = 'default' }: CtaBlockProps) {
+  const show = process.env.NEXT_PUBLIC_SHOW_CTA_BLOCKS === 'true';
+  if (!show) return null;
+
   return (
     <aside
       className="my-8 flex flex-col gap-4 rounded-[20px] p-5 sm:my-10 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:rounded-[24px] sm:p-8"

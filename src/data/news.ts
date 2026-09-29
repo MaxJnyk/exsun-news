@@ -1,11 +1,9 @@
 export type NewsTag =
   | 'Bitcoin'
-  | 'Ethereum'
   | 'Stablecoins'
   | 'Биржи'
   | 'Регулирование'
   | 'Безопасность'
-  | 'DeFi'
   | 'Обмен'
   | 'Налоги'
   | 'Аналитика';
@@ -24,7 +22,7 @@ export interface NewsArticle {
   featured?: boolean;
 }
 
-export const news: NewsArticle[] = [
+export const rawNews: NewsArticle[] = [
   {
     slug: 'kak-proverit-kriptoobmennik-chek-list',
     title: 'Как проверить криптообменник: чек-лист без лишней паники',
@@ -550,14 +548,18 @@ export const news: NewsArticle[] = [
 
 ];
 
+// Сортируем по дате (новые сверху) — DD.MM.YYYY → YYYY-MM-DD
+export const news: NewsArticle[] = rawNews.sort((a, b) => {
+  const toIso = (d: string) => d.split('.').reverse().join('-');
+  return toIso(b.date).localeCompare(toIso(a.date));
+});
+
 export const allTags: NewsTag[] = [
   'Bitcoin',
-  'Ethereum',
   'Stablecoins',
   'Биржи',
   'Регулирование',
   'Безопасность',
-  'DeFi',
   'Обмен',
   'Налоги',
   'Аналитика',

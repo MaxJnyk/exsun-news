@@ -49,12 +49,12 @@ export default function ContactsPage() {
       <p>
         Редакция доступна в Telegram:{' '}
         <a
-          href="https://t.me/exsun_news"
+          href="https://t.me/exsun_official"
           target="_blank"
           rel="noopener noreferrer"
           className="text-orange underline"
         >
-          @exsun_news
+          @exsun_official
         </a>
       </p>
       <p className="mt-8 text-sm text-muted">

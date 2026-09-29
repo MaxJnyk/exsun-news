@@ -5,8 +5,6 @@ import { NewsCard } from '@/components/NewsCard';
 import {
   getFeaturedNews,
   getTodayNews,
-  getYesterdayNews,
-  getOlderNews,
   news,
 } from '@/data/news';
 
@@ -15,8 +13,6 @@ const baseUrl = 'https://news.exsun.net';
 export default function HomePage() {
   const featured = getFeaturedNews();
   const todayNews = getTodayNews();
-  const yesterdayNews = getYesterdayNews();
-  const olderNews = getOlderNews();
 
   const itemListJsonLd = {
     '@context': 'https://schema.org',
@@ -52,12 +48,12 @@ export default function HomePage() {
           Главное из мира криптовалют за 24 часа
         </h1>
         <p className="text-xs text-muted sm:text-sm lg:text-base">
-          28.09.2026 · {1 + todayNews.length} материалов сегодня
+          {1 + todayNews.length} свежих материалов
         </p>
       </section>
 
       {/* Hero: featured + 2 side cards */}
-      <section aria-label="Главные новости сегодня" className="mb-8 sm:mb-10 lg:mb-12">
+      <section aria-label="Главные новости" className="mb-8 sm:mb-10 lg:mb-12">
         <div className="grid grid-cols-1 gap-3 sm:gap-4 lg:grid-cols-3 lg:gap-5">
           {/* Featured - занимает 2 колонки */}
           {featured && (
@@ -72,55 +68,24 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-        {/* Остальные карточки */}
-        {todayNews.length > 2 && (
-          <div className="mt-3 grid grid-cols-1 gap-3 sm:mt-4 sm:grid-cols-2 sm:gap-4 lg:mt-5 lg:grid-cols-3 lg:gap-5">
-            {todayNews.slice(2).map((article) => (
-              <NewsCard key={article.slug} article={article} />
-            ))}
-          </div>
-        )}
       </section>
 
-      {/* Yesterday */}
-      {yesterdayNews.length > 0 && (
-        <section className="mb-8 sm:mb-10 lg:mb-12">
-          <div className="mb-3 flex items-baseline justify-between sm:mb-4">
-            <h2
-              className="text-xl font-bold leading-[1.3] text-ink sm:text-2xl lg:text-[28px]"
-              style={{ letterSpacing: '-0.8px' }}
-            >
-              Ранее
-            </h2>
-            <span className="text-xs text-muted sm:text-sm">14 сентября</span>
-          </div>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
-            {yesterdayNews.map((article) => (
+      {/* Все материалы */}
+      <section className="mb-8 sm:mb-10 lg:mb-12">
+        <h2
+          className="mb-3 text-xl font-bold leading-[1.3] text-ink sm:mb-4 sm:text-2xl lg:text-[28px]"
+          style={{ letterSpacing: '-0.8px' }}
+        >
+          Все материалы
+        </h2>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
+          {news
+            .filter((a) => a.slug !== featured?.slug && !todayNews.slice(0, 2).some((t) => t.slug === a.slug))
+            .map((article) => (
               <NewsCard key={article.slug} article={article} />
             ))}
-          </div>
-        </section>
-      )}
-
-      {/* Older */}
-      {olderNews.length > 0 && (
-        <section className="mb-8 sm:mb-10 lg:mb-12">
-          <div className="mb-3 flex items-baseline justify-between sm:mb-4">
-            <h2
-              className="text-xl font-bold leading-[1.3] text-ink sm:text-2xl lg:text-[28px]"
-              style={{ letterSpacing: '-0.8px' }}
-            >
-              Август
-            </h2>
-            <span className="text-xs text-muted sm:text-sm">20 августа</span>
-          </div>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
-            {olderNews.map((article) => (
-              <NewsCard key={article.slug} article={article} />
-            ))}
-          </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* CTA */}
       <CtaBlock />

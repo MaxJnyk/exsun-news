@@ -154,8 +154,6 @@ export default async function NewsStoryPage(props: PageProps<'/news/[slug]'>) {
           ))}
         </div>
         <div className="mb-3 flex flex-wrap items-center gap-1.5 text-xs text-muted sm:mb-4 sm:gap-2 sm:text-sm">
-          <span>{article.date}</span>
-          <span>·</span>
           <span>{readingTime} мин чтения</span>
           <span>·</span>
           <span>{article.author}</span>

@@ -2,12 +2,10 @@ import type { NewsTag } from '@/data/news';
 
 const tagColors: Record<NewsTag, string> = {
   Bitcoin: '#f7931a',
-  Ethereum: '#627eea',
   Stablecoins: '#25b54c',
   Биржи: '#1da0ff',
   Регулирование: '#9b523f',
   Безопасность: '#fe696e',
-  DeFi: '#a855f7',
   Обмен: '#ff794b',
   Налоги: '#5b21b6',
   Аналитика: '#0891b2',
