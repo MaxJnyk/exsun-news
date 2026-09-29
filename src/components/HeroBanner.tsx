@@ -17,7 +17,7 @@ export function HeroBanner() {
           <img
             alt="ExSun — сравните курсы обмена криптовалют"
             className="block w-full"
-            src="/banners/desktop.webp"
+            src="/promo/hero-wide.webp"
             fetchPriority="high"
             loading="eager"
             decoding="async"
