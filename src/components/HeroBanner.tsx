@@ -12,14 +12,13 @@ export function HeroBanner() {
           target="_blank"
           rel="noopener noreferrer"
           className="group relative block select-none overflow-hidden rounded-lg md:rounded-xl"
-          style={{ aspectRatio: '1232/526' }}
         >
           {/* Фоновая картинка */}
           <picture>
             <source media="(max-width: 768px)" srcSet="/banners/mobile.webp" />
             <img
               alt="ExSun — сравните курсы обмена криптовалют"
-              className="absolute inset-0 h-full w-full object-cover"
+              className="block h-full w-full object-cover"
               src="/banners/desktop.webp"
               fetchPriority="high"
               loading="eager"
