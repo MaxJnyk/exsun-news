@@ -15,12 +15,13 @@ const navItems = [
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const hasBanner = process.env.NEXT_PUBLIC_SHOW_TOP_BANNER === 'true';
 
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href);
 
   return (
-    <header className="sticky top-[36px] z-40 border-b border-line bg-white sm:top-[40px]">
+    <header className={`sticky z-40 border-b border-line bg-white ${hasBanner ? 'top-[36px] sm:top-[40px]' : 'top-0'}`}>
       <div className="mx-auto flex h-[60px] max-w-[1248px] items-center justify-between gap-4 px-4 sm:h-[76px] sm:gap-6 sm:px-5 lg:h-[96px] lg:px-8">
         {/* Brand */}
         <Link href="/" className="flex items-center" aria-label="ExSun Crypto News">
@@ -71,7 +72,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <nav className="absolute left-0 top-[96px] z-50 w-full border-b border-line bg-white px-4 py-4 shadow-[0_10px_12px_rgba(32,37,60,0.07)] sm:top-[116px] sm:px-5 sm:py-5 md:hidden">
+        <nav className={`absolute left-0 z-50 w-full border-b border-line bg-white px-4 py-4 shadow-[0_10px_12px_rgba(32,37,60,0.07)] sm:px-5 sm:py-5 md:hidden ${hasBanner ? 'top-[96px] sm:top-[116px]' : 'top-[60px] sm:top-[76px] lg:top-[96px]'}`}>
           <div className="flex flex-col gap-3 text-[15px] font-medium sm:gap-4">
             {navItems.map((item) => (
               <Link
