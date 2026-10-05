@@ -21,10 +21,10 @@ export default function ContactsPage() {
         По вопросам редакции, исправлениям в материалах и
         предложениям о сотрудничестве пишите на{' '}
         <a
-          href="mailto:editor@exsun.net"
+          href="mailto:partner@exsun.net"
           className="text-orange underline"
         >
-          editor@exsun.net
+          partner@exsun.net
         </a>
         .
       </p>
@@ -42,7 +42,7 @@ export default function ContactsPage() {
       </h2>
       <p>
         По вопросам размещения рекламы и спецпроектов — на тот же
-        адрес <a href="mailto:editor@exsun.net" className="text-orange underline">editor@exsun.net</a>{' '}
+        адрес <a href="mailto:partner@exsun.net" className="text-orange underline">partner@exsun.net</a>{' '}
         с пометкой «сотрудничество».
       </p>
       <h2 className="mt-8 mb-3 text-xl font-bold">Мессенджеры</h2>

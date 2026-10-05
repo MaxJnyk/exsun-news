@@ -124,7 +124,7 @@ const orgJsonLd = {
   publishingPrinciples: `${baseUrl}/editorial`,
   actionableFeedbackPolicy: `${baseUrl}/contacts`,
   diversityPolicy: `${baseUrl}/editorial`,
-  email: "editor@exsun.net",
+  email: "partner@exsun.net",
   sameAs: ["https://t.me/exsun_official"],
 };
 

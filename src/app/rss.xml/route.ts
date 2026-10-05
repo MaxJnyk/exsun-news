@@ -21,7 +21,7 @@ export async function GET() {
       <pubDate>${pubDate}</pubDate>
       <description><![CDATA[${article.summary}]]></description>
       <content:encoded><![CDATA[<p>${plainText}...</p>]]></content:encoded>
-      <author>editor@exsun.net (Редакция ExSun Crypto News)</author>
+      <author>partner@exsun.net (Редакция ExSun Crypto News)</author>
       <category>${article.tags.join(', ')}</category>
     </item>`;
     })
