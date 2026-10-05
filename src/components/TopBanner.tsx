@@ -6,7 +6,7 @@ export function TopBanner() {
 
   return (
     <Link
-      href="https://exsun.net"
+      href="https://exsun.net/?utm_source=landing_page"
       target="_blank"
       rel="noopener noreferrer"
       className="sticky top-0 z-50 flex w-full items-center justify-center gap-2 px-4 py-2 text-center transition-opacity hover:opacity-95 sm:gap-4 sm:py-2.5"

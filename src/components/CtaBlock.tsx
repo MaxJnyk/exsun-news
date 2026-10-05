@@ -24,7 +24,7 @@ export function CtaBlock({ variant = 'default' }: CtaBlockProps) {
         </p>
       </div>
       <Link
-        href="https://exsun.net"
+        href="https://exsun.net/?utm_source=landing_page"
         target="_blank"
         rel="noopener noreferrer"
         className="w-full shrink-0 rounded-[12px] bg-white px-5 py-3.5 text-center text-sm font-bold text-orange transition-transform hover:scale-105 sm:w-auto sm:px-8 sm:py-5"

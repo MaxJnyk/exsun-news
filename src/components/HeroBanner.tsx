@@ -9,7 +9,7 @@ export function HeroBanner() {
     <div className="border-b border-[#e5e5e5] bg-white">
       <div className="mx-auto max-w-[1280px] px-3 py-2 md:px-6 md:py-3">
         <Link
-          href="https://exsun.net"
+          href="https://exsun.net/?utm_source=landing_page"
           target="_blank"
           rel="noopener noreferrer"
           className="group relative block select-none overflow-hidden rounded-lg md:rounded-xl"
